@@ -123,6 +123,28 @@
 
 ## Permissions Management
 
+### AssumeRole
+- **Purpose**: Provides temporary security credentials by assuming a role with different permissions, commonly used for cross-account access or delegation.
+- **Use Cases**:
+  - **Cross-Account Access**: Access resources in another account.
+  - **Delegation**: Temporarily assume a different set of permissions.
+- **Features**:
+  - Temporary credentials valid for 15 minutes to 12 hours.
+  - Supports session policies to restrict permissions further.
+
+### GetSessionToken
+- **Purpose**: Generates temporary credentials for an IAM user or root account without changing permissions, often used with MFA.
+- **Use Cases**:
+  - **MFA-Enabled Users**: Generate credentials after MFA authentication.
+  - **Security**: Short-lived credentials for existing permissions.
+- **Features**:
+  - Credentials valid for 15 minutes to 36 hours.
+  - Permissions are the same as the IAM user or root account.
+
+### Key Differences
+- **AssumeRole**: Grants different permissions by assuming a role; typically used for cross-account access.
+- **GetSessionToken**: Retains existing permissions; often used with MFA for enhanced security.
+
 ### API Gateway
 - **API Keys**: Identify trusted calling parties.
 - **AWS_IAM**: Grant permission to the specified IAM role to invoke the `execute-api:Invoke` action.
