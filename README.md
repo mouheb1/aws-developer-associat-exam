@@ -146,8 +146,12 @@
 - **GetSessionToken**: Retains existing permissions; often used with MFA for enhanced security.
 
 ### API Gateway
+
 - **API Keys**: Identify trusted calling parties.
 - **AWS_IAM**: Grant permission to the specified IAM role to invoke the `execute-api:Invoke` action.
+- **Lambda Authorizers**: 
+  - **Token-Based Lambda Authorizer (TOKEN)**: Receives the caller’s identity in a bearer token, such as a JSON Web Token (JWT) or an OAuth token.
+  - **Request Parameter-Based Lambda Authorizer (REQUEST)**: Receives the caller’s identity in a combination of headers, query string parameters, stage variables, and `$context` variables.
 
 ## Containers and Orchestration
 
@@ -161,6 +165,7 @@
 
 #### Notes
 - **Deregistration**: Terminating a running or stopped container instance does not automatically deregister it from the ECS cluster. Manual deregistration is required.
+
 
 ### ECS Cluster Strategies
 - **binpack**: Place tasks based on the least available amount of CPU or memory, minimizing the number of instances in use.
