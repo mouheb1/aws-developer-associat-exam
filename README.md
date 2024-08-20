@@ -307,6 +307,23 @@
 - **Lambda Triggers**: Only Lambda functions can be used as triggers for DynamoDB Streams.
 - **Global Tables**: Use a “last writer wins” conflict resolution strategy.
 
+
+| **Metric**                             | **Mode**           | **Rule**                                                                                     | **Handling Larger Items**                                            |
+|----------------------------------------|--------------------|----------------------------------------------------------------------------------------------|----------------------------------------------------------------------|
+| **Read Request Units (RRU)**           | On-Demand          | 1 RRU = 1 strongly consistent read of up to 4 KB/s                                           | `(Total Item Size / 4 KB)` rounded up to the nearest whole number    |
+|                                        |                    | 1 RRU = 2 eventually consistent reads of up to 4 KB/s                                        |                                                                      |
+|                                        |                    | 2 RRUs = 1 transactional read request for items up to 4 KB/s                                 |                                                                      |
+| **Write Request Units (WRU)**          | On-Demand          | 1 WRU = 1 write of up to 1 KB/s                                                              | `(Total Item Size / 1 KB)` rounded up to the nearest whole number    |
+|                                        |                    | 2 WRUs = 1 transactional write request for items up to 1 KB/s                                |                                                                      |
+| **Write Capacity Units (WCU)**         | Provisioned        | 1 WCU = 1 write of up to 1 KB/s                                                              | `(Total Item Size / 1 KB)` rounded up to the nearest whole number    |
+|                                        |                    | 2 WCUs = 1 transactional write request for items up to 1 KB/s                                |                                                                      |
+| **Read Capacity Units (RCU)**          | Provisioned        | 1 RCU = 1 strongly consistent read of up to 4 KB/s                                           | `(Total Item Size / 4 KB)` rounded up to the nearest whole number    |
+|                                        |                    | 1 RCU = 2 eventually consistent reads of up to 4 KB/s                                        |                                                                      |
+| **Calculating Required RCUs**          | Provisioned        | Step 1: Round up average item size to nearest 4 KB                                           | Example: Item size of 3.5 KB rounds up to 4 KB                       |
+|                                        |                    | Step 2: Divide average item size by 8 KB to determine RCU per item                           | Example: 4 KB / 8 KB = 0.5 RCU per item                              |
+|                                        |                    | Step 3: Multiply RCU per item by the number of items to be read per second                   | Example: 150 items x 0.5 RCU per item = 75 RCUs for eventually consistent read requests |
+
+
 ### DynamoDB Streams
 
 #### Definition
@@ -333,6 +350,7 @@
 - **Split Shards**: Increases capacity.
 - **Instance Scaling**: Launching more instances than the number of open shards will not improve processing efficiency.
 - **KCL Worker**: Each shard is processed by exactly one KCL worker, with one corresponding record processor.
+    one worker can process any number of shards, so it’s fine if the number of shards exceeds the number of instances
 
 ### Kinesis Data Streams
 - **Definition**: A serverless streaming data service for capturing, processing, and storing data streams at any scale.
@@ -430,6 +448,31 @@
 - **Features**: Advanced routing, sticky sessions, health checks.
 - **Use Cases**: Web applications, microservices.
 
+## Security Services
+
+### CloudHSM
+
+#### Purpose
+- **CloudHSM (Hardware Security Module)**: Provides a dedicated hardware security module in the cloud that enables you to generate, manage, and store cryptographic keys securely in AWS while maintaining full control over them. It's designed for organizations requiring high-level security for cryptographic operations and compliance with strict regulatory standards.
+
+#### Use Cases
+- **Secure Key Storage**: Safely store sensitive cryptographic keys for applications that require strong encryption.
+- **Encryption/Decryption Operations**: Perform secure encryption and decryption of data, ensuring that the keys are stored within a hardware-protected environment.
+- **Digital Signing**: Sign documents, transactions, or certificates securely with keys that are protected within the HSM.
+- **SSL/TLS Offloading**: Offload SSL/TLS processing to CloudHSM to secure web applications while ensuring private keys remain secure.
+- **Certificate Authority (CA)**: Manage and store the root of trust for a public key infrastructure (PKI) within the HSM.
+
+#### Features
+- **Dedicated Hardware**: Provides single-tenant, dedicated hardware for cryptographic operations, ensuring isolation and security.
+- **Full Key Control**: Allows you to retain full control over your cryptographic keys, ensuring that AWS does not have access to them.
+- **Compliance**: Meets stringent security standards such as FIPS 140-2 Level 3, making it suitable for regulatory compliance in sectors like finance and healthcare.
+- **Scalability**: Supports clustering of multiple HSMs to handle increased cryptographic workloads and ensure high availability.
+- **VPC Integration**: HSM appliances are deployed within your Amazon Virtual Private Cloud (VPC), allowing for secure and controlled network access.
+
+#### Key Differences
+- **AWS KMS vs. CloudHSM**: AWS KMS is a managed key management service where AWS controls the underlying hardware, while CloudHSM gives you complete control over a dedicated HSM. CloudHSM is preferred when you require full control over your cryptographic keys and need to comply with strict regulatory requirements.
+
+
 ### KMS (Key Management Service)
 
 #### Response Types
@@ -503,3 +546,10 @@
 - When you invoke a function asynchronously, you don’t wait for a response from the function code.
 - **--dry-run**: Parameter checks whether you have the required permissions for the action without making the request, providing an error response.
 - You can only specify one launch template for an Auto Scaling group at a time, and you can’t modify a launch template after you’ve created it.
+
+- To detach an Amazon Elastic Block Store (EBS) volume from an EC2 instance, you need to follow a series of steps to ensure that the detachment is done safely and correctly:
+  1. Stop Any Applications or Processes Using the Volume
+  2. Unmount the Volume from the EC2 Instance
+  3. Detach the EBS Volume Using the AWS Management Console or CLI
+
+
