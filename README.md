@@ -37,6 +37,16 @@
 
 ## API Gateway
 
+### Usage Plans
+- **Purpose**: Define who can access one or more deployed API stages and methods and set throttling and quota limits for each user or group of users.
+- **Components**:
+  - **API Stages**: A usage plan can be associated with one or more API stages.
+  - **Throttling**: Controls the rate limit of requests, specifying the maximum number of requests per second.
+  - **Quota**: Sets a limit on the total number of requests that a user can make within a specified time period (e.g., day, week, or month).
+  - **API Keys**: Users are required to use an API key, which is associated with a usage plan, to access the APIs.
+
+- **Use Case**: Commonly used to manage and monetize API access, ensuring fair usage among users, preventing abuse, and implementing tiered access levels for different user groups.
+
 ### Monitoring
 - **IntegrationLatency**: Measure the responsiveness of the backend.
 - **Latency**: Measure the overall responsiveness of your API calls.
