@@ -450,6 +450,22 @@
 
 ## Security Services
 
+### AWS WAF vs AWS Firewall Manager
+
+- **AWS WAF (Web Application Firewall)**:
+  - Designed to protect web applications from common web exploits, such as SQL injection, cross-site scripting (XSS), and DDoS attacks.
+  - Allows creation of custom rules or use of managed rules to filter specific HTTP/S traffic patterns.
+  - Can be integrated directly with Amazon CloudFront, Application Load Balancer (ALB), and API Gateway to protect web applications.
+  - Provides real-time visibility into web traffic with detailed logs and metrics.
+  - **Use Case**: Protect web applications and APIs from web-based threats, block or allow traffic based on specific patterns like IP addresses, request headers, or country.
+
+- **AWS Firewall Manager**:
+  - A security management service that allows centralized configuration and management of firewall rules across multiple AWS accounts and resources.
+  - Works in conjunction with AWS WAF, AWS Shield, and AWS VPC security groups to enforce security policies organization-wide.
+  - Automatically discovers resources and applies the appropriate security policies, ensuring consistent protection across accounts and regions.
+  - Ideal for multi-account and multi-region management, reducing the risk of misconfigurations and maintaining compliance.
+  - **Use Case**: Centralized management and enforcement of security policies across multiple AWS accounts, especially in large or complex organizations. Automates protection and ensures consistent security across all resources.
+
 ### CloudHSM
 
 #### Purpose
