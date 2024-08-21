@@ -183,7 +183,13 @@
 ### Notes
 - **Catch** and **Retry** fields are designed for error handling within Step Functions state machines. They centralize error handling logic, making it easier to manage.
 
-## Permissions Management
+### Permissions Management
+
+#### IAM Role vs. IAM User
+
+- **IAM User**: Represents a specific individual or service with long-term credentials (passwords, access keys). Typically used for consistent, long-term access to AWS resources.
+
+- **IAM Role**: Provides temporary access to AWS resources by being assumed by users, services, or applications. Roles are ideal for secure, temporary access and cross-account permissions without long-term credentials.
 
 ### AssumeRole
 - **Purpose**: Provides temporary security credentials by assuming a role with different permissions, commonly used for cross-account access or delegation.
