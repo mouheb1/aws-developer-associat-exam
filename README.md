@@ -58,6 +58,12 @@
 - **HTTP_PROXY**: Integrate with external APIs that require full request pass-through.
 - **MOCK**: Test API clients, build mock APIs.
 
+### Access Control
+- **AWS_IAM**: Secure, controlled access using IAM policies.
+- **NONE**: Open access, no authentication.
+- **COGNITO_USER_POOLS**: Managed user authentication via Amazon Cognito.
+- **CUSTOM**: Flexible, Lambda-based custom authorization logic.
+
 ### Notes
 - APIs created with Amazon API Gateway expose HTTPS endpoints only (does not support HTTP).
 - API keys alone do not grant access to execute an API. They need to be associated with a usage plan that determines which API stages and methods the API key can access.
