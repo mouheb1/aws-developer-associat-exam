@@ -313,6 +313,34 @@
 
 ### DynamoDB
 
+#### ReturnValues
+- **Purpose**: Determines whether to return item attributes in a response, and if so, which ones.
+- **Options**:
+  - `NONE`: No attributes are returned.
+  - `ALL_OLD`: Returns the attributes of the item as it was before the operation.
+  - `UPDATED_OLD`: Returns only the updated attributes, as they were before the operation.
+  - `ALL_NEW`: Returns all attributes of the item after the operation.
+  - `UPDATED_NEW`: Returns only the updated attributes, as they are after the operation.
+
+#### Select
+- **Purpose**: Determines the select behavior of a query or scan operation.
+- **Options**:
+  - `ALL_ATTRIBUTES`: Returns all attributes.
+  - `ALL_PROJECTED_ATTRIBUTES`: Returns only the attributes that are projected into the index.
+  - `SPECIFIC_ATTRIBUTES`: Returns only the specified attributes.
+  - `COUNT`: Returns the number of matching items, rather than the items themselves.
+
+#### Attributes
+- **Purpose**: Refers to the individual data elements within a DynamoDB item.
+- **Types**:
+  - **Scalar Types**: String, Number, Binary, Boolean, Null.
+  - **Document Types**: List, Map.
+  - **Set Types**: String Set, Number Set, Binary Set.
+
+#### LeadingKeys
+- **Purpose**: Refers to the primary key attributes (Partition Key and Sort Key) that are used to uniquely identify items in a DynamoDB table.
+- **Importance**: The choice of leading keys is critical for efficient data retrieval and performance optimization in DynamoDB.
+
 #### Locking Mechanisms
 - **Pessimistic Locking**: Locks records immediately.
 - **Optimistic Locking**: Locks records only during commit.
