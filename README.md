@@ -426,6 +426,36 @@
 - The CodeDeploy agent is required only if deploying to an EC2/On-Premises compute platform.
 - Stores application packages (e.g., zip files) in S3 for deployment.
 
+### AWS Data Pipeline
+
+#### Data Pipeline Concepts
+- A web service that helps you reliably process and move data between different AWS compute and storage services, as well as on-premises data sources, at specified intervals.
+
+#### Pipeline Definition
+- **Functionality**:
+  - A JSON document that specifies the business logic of your data management.
+  - Defines the source data, the data transformations, and the destination where the data should be stored.
+
+#### Activities
+- **Functionality**:
+  - The work performed on the data in the pipeline, such as copying, running a query, or performing a custom application.
+  - Examples include EMR activity, ShellCommandActivity, and more.
+
+#### Scheduling
+- **Functionality**:
+  - Defines when your pipeline activities should run.
+  - You can specify intervals or specific times for when each activity should be executed.
+
+#### Resources
+- **Functionality**:
+  - The compute resources (like EC2 instances or EMR clusters) that your pipeline uses to perform activities.
+  - Includes instance types, regions, and other details about the infrastructure.
+
+#### Monitoring and Logging
+- **Functionality**:
+  - AWS Data Pipeline provides built-in monitoring and logging to track the progress and health of your pipeline.
+  - Logs are available in Amazon CloudWatch.
+
 ### Elastic Beanstalk
 
 #### Configuration Files
