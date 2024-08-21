@@ -155,6 +155,26 @@
 
 ## Step Functions
 
+#### State Definition
+
+- **Task**: Represents a single unit of work, such as invoking an AWS Lambda function or calling another AWS service.
+
+- **Pass**: Passes its input to its output or injects some fixed data without performing any work. Useful for testing and debugging.
+
+- **Choice**: Adds conditional branching to your workflow. Based on the input, the workflow can proceed down different paths.
+
+- **Wait**: Delays execution for a specific time or until a certain time is reached.
+
+- **Parallel**: Enables the execution of multiple branches of a workflow simultaneously.
+
+- **Map**: Iterates over a collection of items and applies the same processing steps to each item.
+
+- **Succeed**: Terminates the state machine execution successfully.
+
+- **Fail**: Terminates the state machine execution and marks it as a failure.
+
+- **Retry and Catch**: Handle error conditions by retrying failed operations or transitioning to a fallback state.
+  
 ### Task States
 - **waitForTaskToken**: Pause a task until an external system signals completion.
 - **SendTaskSuccess**: Mark a task as successfully completed.
