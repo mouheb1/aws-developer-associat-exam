@@ -106,6 +106,7 @@
 #### Notes
 - CloudFormation is for building and managing your AWS infrastructure.
 - **CDK Synth**: A command-line tool that converts your AWS CDK code into a CloudFormation template.
+- **AWS Systems Manager Parameter Store**: Store sensitive data like database passwords or API keys in the Parameter Store, using the **SecureString** type with encryption enabled.
 
 ### AWS SAM
 - **Definition**: Uses AWS CloudFormation as the underlying deployment mechanism.
