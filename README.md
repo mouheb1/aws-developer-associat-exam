@@ -287,6 +287,7 @@
 
 #### Data Recording
 - **Metadata**: Store additional context or detailed information not suitable for searching.
+- **Sampling**: Determines the percentage of requests that are traced, reducing the overhead of X-Ray by only capturing a subset of requests. It doesn't allow you to focus on specific blocks of code.
 - **Annotations**: Structured data used for filtering and analysis.
 - **Subsegments**: Break down a segment into smaller units to measure performance.
 
