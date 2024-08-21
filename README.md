@@ -54,6 +54,16 @@
 
 ## Encryption
 
+### AWS KMS vs. AWS STS
+
+#### AWS KMS decrypt
+- **Purpose**: Decrypts data that has been encrypted using AWS Key Management Service (KMS).
+- **Use Case**: Used to securely decrypt sensitive data, such as database credentials or encrypted files, that were previously encrypted with a KMS key.
+
+#### AWS STS decode-authorization-message
+- **Purpose**: Decodes authorization failure messages returned by AWS services when an action is denied due to insufficient IAM permissions.
+- **Use Case**: Used to understand and troubleshoot IAM permission errors by decoding encoded messages that explain why a specific action was unauthorized.
+
 ### S3 Encryption
 - **Default Encryption**: Use AWS KMS Keys (SSE-KMS).
 - **Permissions**: Uploading a large file to S3 requires `kms:Decrypt` and `kms:GenerateDataKey`.
