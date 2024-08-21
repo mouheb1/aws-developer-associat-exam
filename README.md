@@ -542,6 +542,16 @@
 - **Dockerrun.aws.json**: Configure multi-container Docker environments.
 - **env.yaml**: Configure environment name, solution stack, and environment links.
 
+```plaintext
+.
+├── .ebextensions/
+│   ├── 01-packages.config
+│   ├── 02-environment.config
+│   ├── 03-files.config
+│   ├── 04-container_commands.config
+│   └── 05-commands.config
+```
+
 #### Deployment Methods
 - **All at Once**: Deploy to all instances simultaneously.
 - **Rolling**: Deploy in batches, reducing capacity during deployment.
