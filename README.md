@@ -299,7 +299,7 @@
 
 #### Global Secondary Indexes (GSIs)
 - Support only eventual consistency.
-- Queries or scans consume capacity units from the index, not the base table.
+- Queries or scans consume capacity units from the index, not the base table. ( to prevent throttling: GSI WCU > Table WCU )
 
 #### Notes
 - **Write Capacity Units (WCU)**: 1 WCU can handle 1 write per second for an item up to 1KB.
