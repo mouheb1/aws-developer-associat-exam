@@ -226,7 +226,9 @@
 - **Container Agent**: Allows container instances to connect to your cluster.
 
 #### Notes
-- **Deregistration**: Terminating a running or stopped container instance does not automatically deregister it from the ECS cluster. Manual deregistration is required.
+- **Deregistration**: 
+  - **RUNNING State**: Automatic deregistration occurs when the instance is terminated.
+  - **STOPPED State**: Manual deregistration is necessary using the Amazon ECS Console, AWS CLI, or an API call. A deregistered instance will no longer appear as a resource in your ECS cluster.
 
 
 ### ECS Cluster Strategies
