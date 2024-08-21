@@ -149,6 +149,9 @@
 - Performs the functionality of `sam package` and more.
 - **Functionality**:
   - Directly packages and deploys your application.
+  - 
+#### Sam local invoke
+- Works with **CloudFormation template** ( use **cdk synth** to convert CDK constructs )  
 
 ## Step Functions
 
