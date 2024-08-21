@@ -678,6 +678,9 @@
 #### Definition
 - A web service that enables you to request temporary, limited-privilege credentials for users.
 
+#### Note
+- The policy that will use STS should be created on the account you are delegating access to, which is the development account.
+
 ## Edge Computing
 
 ### CloudFront
