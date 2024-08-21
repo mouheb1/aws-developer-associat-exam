@@ -112,6 +112,24 @@
 - **Definition**: Uses AWS CloudFormation as the underlying deployment mechanism.
 - **Deploy**: Zips your code artifacts, uploads them to S3, and produces a packaged AWS SAM template file for deployment.
 
+#### sam init
+- Initializes a serverless application with an AWS SAM template.
+- **Functionality**:
+  - Provides a folder structure for your Lambda functions.
+  - Connects to event sources such as APIs, S3 buckets, or DynamoDB tables.
+  - Includes everything you need to get started and to eventually extend it into a production-scale application.
+
+#### sam build
+- Builds any dependencies that your application has.
+- **Functionality**:
+  - Copies your application source code to folders under `.aws-sam/build`.
+  - Prepares the application to be zipped and uploaded to Lambda.
+
+#### sam deploy
+- Performs the functionality of `sam package` and more.
+- **Functionality**:
+  - Directly packages and deploys your application.
+
 ## Step Functions
 
 ### Task States
