@@ -112,10 +112,37 @@
 - **Ref**: Reference the logical ID of a resource.
 
 #### Template Components
-- **Transform**: The version of the AWS Serverless Application Model (AWS SAM).
-- **Mappings**: Literal mapping of keys and associated values.
-- **Parameters**: Values passed to your template at runtime.
-- **Format Version**: The AWS CloudFormation template version.
+- **Transform**: Declares the use of AWS SAM or another macro.
+  ```
+  Transform: 'AWS::Serverless-2016-10-31'
+  ```
+
+- **Mappings**: Define static key-value pairs for reuse within the template.
+  ```
+  Mappings:
+  RegionMap:
+    us-east-1:
+      AMI: ami-0ff8a91507f77f867
+    us-west-1:
+      AMI: ami-0bdb828fd58c52235
+  ```
+
+- **Parameters**: Allow dynamic input to customize stack deployment.
+  ```
+  Parameters:
+  InstanceType:
+    Type: String
+    Default: t2.micro
+    AllowedValues:
+      - t2.micro
+      - t2.small
+    Description: EC2 instance type
+  ```
+    
+- **Format Version**: Specifies the CloudFormation template version.
+  ```
+  AWSTemplateFormatVersion: '2010-09-09'
+  ```
 
 #### StackSets
 - Extends stack functionality across multiple accounts and regions with a single operation.
