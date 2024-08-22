@@ -495,7 +495,7 @@
 ### AWS Elastic MapReduce (EMR)
 
 #### Definition
-- A managed cluster platform simplifying running big data frameworks (e.g., Apache Hadoop, Apache Spark) on AWS.
+- is a cloud-based big data platform provided by Amazon Web Services (AWS) that enables you to process vast amounts of data using popular open-source frameworks like Apache Hadoop, Apache Spark, Apache HBase, Apache Flink, and Presto. EMR simplifies running big data frameworks on dynamically scalable clusters, making it easier to analyze large datasets quickly and cost-effectively.
 
 #### Usage
 - Troubleshoot cluster issues, such as failures or errors.
