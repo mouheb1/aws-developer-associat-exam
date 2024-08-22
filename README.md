@@ -478,6 +478,7 @@
 ### Kinesis Data Streams
 
 #### Definition
+- A serverless streaming data service for capturing, processing, and storing data streams at any scale.
 - A set of shards, each containing a sequence of data records.
 
 #### Notes
@@ -485,9 +486,6 @@
 - **Instance Scaling**: Launching more instances than the number of open shards will not improve processing efficiency.
 - **KCL Worker**: Each shard is processed by exactly one KCL worker, with one corresponding record processor.
     one worker can process any number of shards, so it’s fine if the number of shards exceeds the number of instances
-
-### Kinesis Data Streams
-- **Definition**: A serverless streaming data service for capturing, processing, and storing data streams at any scale.
 
 ### Amazon Redshift
 
