@@ -384,6 +384,8 @@
 - **Origin Response**: After CloudFront receives the response from the origin.
 - **Viewer Response**: Before CloudFront forwards the response to the viewer.
 
+![Alt text](https://d2908q01vomqb2.cloudfront.net/5b384ce32d8cdef02bc3a139d4cac0a22bb029e8/2018/01/23/cloudfront-events-that-trigger-lambda-functions.png)
+
 ## Databases
 
 ### DynamoDB
