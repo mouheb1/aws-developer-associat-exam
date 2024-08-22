@@ -48,8 +48,8 @@
 - **Use Case**: Commonly used to manage and monetize API access, ensuring fair usage among users, preventing abuse, and implementing tiered access levels for different user groups.
 
 ### Monitoring
-- **IntegrationLatency**: Measure the responsiveness of the backend.
-- **Latency**: Measure the overall responsiveness of your API calls.
+- **IntegrationLatency**: Refers specifically to the time that elapses between API Gateway forwarding a request to the backend integration (e.g., Lambda, HTTP endpoint) and receiving a response from that integration.
+- **Latency**: Refers to the total time that elapses from when API Gateway receives a request to when it returns a response to the client.
 
 ### Integration Types
 - **AWS**: Integrate with serverless functions, accessing data from AWS services.
