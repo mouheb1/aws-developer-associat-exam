@@ -87,9 +87,11 @@
 ### Encryption Algorithms
 - **SSE-KMS**: `x-amz-server-side-encryption`.
 - **SSE-C**: 
-  - `x-amz-server-side-encryption-customer-algorithm`
-  - `x-amz-server-side-encryption-customer-key`
-  - `x-amz-server-side-encryption-customer-key-MD5`
+  - `x-amz-server-side-encryption-customer-algorithm`: This header specifies the encryption algorithm. The header value must be **AES256**
+  - `x-amz-server-side-encryption-customer-key`: This header provides the 256-bit, base64-encoded encryption key for Amazon S3 to use to encrypt or decrypt your data.
+
+  - `x-amz-server-side-encryption-customer-key-MD5`: This header provides the base64-encoded 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.
+
 
 ## Compute and Development
 
